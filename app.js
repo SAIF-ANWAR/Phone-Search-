@@ -2,7 +2,6 @@ const searchPhones = () => {
     const searchInput = document.getElementById('search-input');
     const searchText = searchInput.value;
     searchInput.value = "";
-    console.log(searchText.length)
 
     fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(res => res.json())
@@ -15,10 +14,8 @@ searchPhones()
 
 const displayPhones = data => {
     const searchResult = document.getElementById('search-result');
-    // const limitedData = data.slice(0, 20);
-    // console.log(limitedData)
-    for (const phone of data) {
-        // console.log(data)
+    const limitedData = data.slice(0, 20);
+    for (const phone of limitedData) {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `          
@@ -39,7 +36,6 @@ const displayPhones = data => {
 }
 
 const showDetails = slug => {
-    console.log(slug);
     const url = (`https://openapi.programming-hero.com/api/phone/${slug}`);
     fetch(url)
         .then(res => res.json())
@@ -48,12 +44,11 @@ const showDetails = slug => {
 }
 
 const showDetailsOnWeb = phone => {
-    console.log(phone)
     const displayDetails = document.getElementById('display-details');
     const div = document.createElement('div');
     div.innerHTML = `
     <div id="details-card" class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
+    <div id="details-box" class="row g-0">
         <div id="details-img" class="col-md-4">
             <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
         </div>
@@ -69,7 +64,7 @@ const showDetailsOnWeb = phone => {
             <li class="list-group-item">Sensors: ${phone.mainFeatures.sensors[0]}, ${phone.mainFeatures.sensors[1]}, ${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[4]}, ${phone.mainFeatures.sensors[5]} </li>
             <li class="list-group-item">Others: Bluetooth-  ${phone.others.Bluetooth}, GPS-${phone.others.GPS}, NFC- ${phone.others.NFC}, Radio- ${phone.others.Radio}, USB-${phone.others.USB}, WLAN- ${phone.others.WLAN},</li>
 
-        </ul>
+             </ul>
         </div>
         </div>
         </div>
