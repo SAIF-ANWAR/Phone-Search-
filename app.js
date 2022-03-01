@@ -15,9 +15,10 @@ searchPhones()
 
 const displayPhones = data => {
     const searchResult = document.getElementById('search-result');
-    searchResult.slice = (0, 20);
+    // const limitedData = data.slice(0, 20);
+    // console.log(limitedData)
     for (const phone of data) {
-        console.log(data)
+        // console.log(data)
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `          
