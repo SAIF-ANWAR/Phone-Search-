@@ -8,33 +8,91 @@
     <title>Cell Phones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        .title {
+            display: none;
+        }
 
+        #title {
+            margin: 20px 0px;
+            color: rgb(236, 70, 70);
+        }
+
+        .card {
+            align-items: center;
+        }
+
+        .card-img-top {
+            text-align: center;
+            width: 60%;
+            height: 90%;
+        }
+
+        #button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgb(248, 105, 105);
+            color: white;
+            margin-top: 5px;
+        }
+
+        #details-card {
+            margin-left: 600px;
+        }
+
+        #details-img img {
+            height: 350px;
+            margin-top: 30px;
+        }
+    </style>
 
 </head>
 
 <body>
-    <h1 class="text-center ">Mobile Phones</h1>
+    <h1 id="title" class="text-center ">Mobile Phones</h1>
 
     <!-- Search area  -->
     <div class="input-group mb-3 w-50 mx-auto">
-        <input id="search-input" type="text" class="form-control" placeholder="Search Your Phones"
+        <input id="search-input" type="text" class="form-control" placeholder="Type phones name here"
             aria-label="Recipient's username" aria-describedby="button-addon2">
         <button onclick="searchPhones()" id="search-button" class="btn btn-outline-secondary" type="button"
             id="button-addon2">Search</button>
     </div>
+    <h3 id="title-id" class=" title text-center ">No phone found</h3>
 
     <!-- Show details of phones  -->
     <!--   -->
-    <div id="display-details" class="w-50 mx-auto">
+    <div id="display-details">
 
     </div>
+
+
+    <!-- <div id="display-details" class="w-50 mx-auto">
+        <div id="details-card" class="card " style="width: 18rem;">
+        <img src="${phone.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">"${phone.name} "</h5>
+            <p id="release-date">Release Date: ${phone.releaseDate ? phone.releaseDate : 'not available'}</p> 
+        </div>
+        <ul class="list-group slist-group-flush">
+            <li class="list-group-item">Chipset: ${phone.mainFeatures.chipSet}</li>
+            <li class="list-group-item">Display: ${phone.mainFeatures.displaySize}</li>
+            <li class="list-group-item">Memory: ${phone.mainFeatures.memory}</li>
+    
+        </ul>
+            </div> -->
+    <!-- </div> -->
 
 
     <!-- Show search results  -->
-    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 img-fluid">
+    <div class="container">
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 img-fluid">
 
+        </div>
     </div>
 
+
+    <!-- java sript  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
