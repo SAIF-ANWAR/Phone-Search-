@@ -6,20 +6,19 @@ const searchPhones = () => {
     fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
-
-
 }
 
 searchPhones()
 
 const displayPhones = data => {
+
     const searchResult = document.getElementById('search-result');
     const limitedData = data.slice(0, 20);
     for (const phone of limitedData) {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `          
-            <div class="card h-100"> 
+            <div id="card-img" class="card h-100"> 
             <img  src="${phone.image}"  class="card-img-top">
                 <div class="card-body">
                 <h4 class="card-title">Phone Name: ${phone.phone_name} </h4>
