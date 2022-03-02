@@ -3,22 +3,37 @@ const searchPhones = () => {
     const searchText = searchInput.value;
     searchInput.value = "";
 
+    // clear search value  
+    document.getElementById("search-result").innerHTML = "";
+
+    // clear displayDetails value
+    const displayDetails = document.getElementById('display-details');
+    displayDetails.innerHTML = "";
+
     fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
         .then(res => res.json())
         .then(data => displayPhones(data.data));
+
 }
 
 searchPhones()
 
+// display phones be search text 
 const displayPhones = data => {
-
     const searchResult = document.getElementById('search-result');
     const limitedData = data.slice(0, 20);
+    if (limitedData.length == 0) {
+        document.getElementById("title-id").style.display = "block";
+    }
+    else {
+
+        document.getElementById("title-id").style.display = "none";
+    }
     for (const phone of limitedData) {
         const div = document.createElement('div');
         div.classList.add('col');
-        div.innerHTML = `          
-            <div id="card-img" class="card h-100"> 
+        div.innerHTML = `       
+            <div id="card-img" class="card h-100">             
             <img  src="${phone.image}"  class="card-img-top">
                 <div class="card-body">
                 <h4 class="card-title">Phone Name: ${phone.phone_name} </h4>
@@ -42,8 +57,10 @@ const showDetails = slug => {
 
 }
 
+// show details after clicking the buton 
 const showDetailsOnWeb = phone => {
     const displayDetails = document.getElementById('display-details');
+    displayDetails.innerHTML = "";
     const div = document.createElement('div');
     div.innerHTML = `
     <div id="details-card" class="card mb-3" style="max-width: 540px;">
@@ -61,7 +78,7 @@ const showDetailsOnWeb = phone => {
             <li class="list-group-item">Display: ${phone.mainFeatures.displaySize}</li>
             <li class="list-group-item">Memory: ${phone.mainFeatures.memory}</li>
             <li class="list-group-item">Sensors: ${phone.mainFeatures.sensors[0]}, ${phone.mainFeatures.sensors[1]}, ${phone.mainFeatures.sensors[2]}, ${phone.mainFeatures.sensors[3]}, ${phone.mainFeatures.sensors[4]}, ${phone.mainFeatures.sensors[5]} </li>
-            <li class="list-group-item">Others: Bluetooth-  ${phone.others.Bluetooth}, GPS-${phone.others.GPS}, NFC- ${phone.others.NFC}, Radio- ${phone.others.Radio}, USB-${phone.others.USB}, WLAN- ${phone.others.WLAN},</li>
+            <li class="list-group-item">Others: Bluetooth-  ${phone.others?.Bluetooth ?? "not found"}, GPS-${phone.others?.GPS ?? "not found"}, NFC- ${phone.others?.NFC ?? "not found"}, Radio- ${phone.others?.Radio ?? "not found"}, USB-${phone.others?.USB}, WLAN- ${phone.others?.WLAN ?? "not found"}</li>
 
              </ul>
         </div>
