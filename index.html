@@ -12,30 +12,31 @@
 </head>
 
 <body>
-    <h1 id="title" class="text-center ">Mobile Phones</h1>
-
-    <!-- Search area  -->
-    <div class="input-group mb-3 w-50 mx-auto">
-        <input id="search-input" type="text" class="form-control" placeholder="Type phones name here"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhones()" id="search-button" class="btn btn-outline-secondary" type="button"
-            id="button-addon2">Search</button>
-    </div>
-    <h3 id="title-id" class=" title text-center ">No phones found yet: seach by correct name</h3>
-
-    <!-- Show details of phones  -->
-
-    <div id="display-details">
-
-    </div>
-
-    <!-- Show search results  -->
-    <div class="container">
-        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 img-fluid">
-
+    <header>
+        <h1 id="title" class="text-center ">Mobile Phones</h1>
+    </header>
+    <main>
+        <!-- Search area  -->
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input id="search-input" type="text" class="form-control" placeholder="Type phones name here"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchPhones()" id="search-button" class="btn btn-outline-secondary" type="button"
+                id="button-addon2">Search</button>
         </div>
-    </div>
-
+        <!-- Show details of phones  -->
+        <div id="display-details">
+        </div>
+        <!-- Show search results  -->
+        <div class="container">
+            <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 img-fluid">
+            </div>
+        </div>
+        <!-- error section  -->
+        <div id="error-section">
+            <h5 id="title-id" class=" title text-center w-50 mx-auto"> Error: No phones found yet: seach by correct name
+            </h5>
+        </div>
+    </main>
 
     <!-- java sript  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

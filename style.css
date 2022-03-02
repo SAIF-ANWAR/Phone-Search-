@@ -1,5 +1,9 @@
 #title-id {
     display: none;
+    background-color: rgb(245, 194, 53);
+    color: red;
+    padding: 5px;
+    
 }
 
 #card-img img{

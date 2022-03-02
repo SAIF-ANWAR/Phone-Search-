@@ -16,9 +16,8 @@ const searchPhones = () => {
 
 }
 
-searchPhones()
+// display search results 
 
-// display phones be search text 
 const displayPhones = data => {
     const searchResult = document.getElementById('search-result');
     const limitedData = data.slice(0, 20);
@@ -26,7 +25,6 @@ const displayPhones = data => {
         document.getElementById("title-id").style.display = "block";
     }
     else {
-
         document.getElementById("title-id").style.display = "none";
     }
     for (const phone of limitedData) {
@@ -49,8 +47,8 @@ const displayPhones = data => {
 
 }
 
-const showDetails = slug => {
-    const url = (`https://openapi.programming-hero.com/api/phone/${slug}`);
+const showDetails = id => {
+    const url = (`https://openapi.programming-hero.com/api/phone/${id}`);
     fetch(url)
         .then(res => res.json())
         .then(data => showDetailsOnWeb(data.data))
@@ -87,4 +85,4 @@ const showDetailsOnWeb = phone => {
         `;
     displayDetails.appendChild(div);
 
-}
+};
